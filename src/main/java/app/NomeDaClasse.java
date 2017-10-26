@@ -16,6 +16,11 @@ public class NomeDaClasse {
 	 * Construtor
 	 **/
 	public NomeDaClasse (){
+	  
+	 
 	}
-
+public void Nome (){
+	  
+	 
+	}
 }
