@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="teste" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="4e84d1f0-d5e7-4601-afa7-d024af9ea737">
+	<property name="zoom.factor" value="50.0"/>
+	<property name="DATASOURCE" value="jdbc/main"/>
+	<property name="REPORT_DATASET" value="[{&quot;name&quot;:&quot;TESTE1&quot;,&quot;j4CDataset&quot;:{&quot;datasetType&quot;:&quot;DATASOURCE&quot;,&quot;freeQuery&quot;:false,&quot;jndiConnection&quot;:&quot;jdbc/main&quot;,&quot;entity&quot;:{&quot;entity&quot;:&quot;app.entity.User&quot;,&quot;jpql&quot;:&quot;SELECT a FROM User a WHERE (1\u003d1)&quot;},&quot;recordLimit&quot;:10,&quot;tables&quot;:[{&quot;name&quot;:&quot;USER&quot;}],&quot;joins&quot;:[{&quot;right&quot;:{&quot;parent&quot;:{&quot;name&quot;:&quot;USER&quot;},&quot;name&quot;:&quot;theme&quot;,&quot;type&quot;:&quot;VARCHAR&quot;},&quot;operator&quot;:&quot;EQUALS&quot;,&quot;left&quot;:{&quot;parent&quot;:{&quot;name&quot;:&quot;ROLE&quot;},&quot;name&quot;:&quot;fk_user&quot;}}],&quot;columns&quot;:[{&quot;parent&quot;:{&quot;name&quot;:&quot;USER&quot;},&quot;name&quot;:&quot;theme&quot;,&quot;type&quot;:&quot;VARCHAR&quot;},{&quot;parent&quot;:{&quot;name&quot;:&quot;USER&quot;},&quot;name&quot;:&quot;picture&quot;,&quot;type&quot;:&quot;VARCHAR&quot;},{&quot;parent&quot;:{&quot;name&quot;:&quot;USER&quot;},&quot;name&quot;:&quot;password&quot;,&quot;type&quot;:&quot;VARCHAR&quot;},{&quot;parent&quot;:{&quot;name&quot;:&quot;USER&quot;},&quot;name&quot;:&quot;name&quot;,&quot;type&quot;:&quot;VARCHAR&quot;},{&quot;parent&quot;:{&quot;name&quot;:&quot;USER&quot;},&quot;name&quot;:&quot;login&quot;,&quot;type&quot;:&quot;VARCHAR&quot;},{&quot;parent&quot;:{&quot;name&quot;:&quot;USER&quot;},&quot;name&quot;:&quot;email&quot;,&quot;type&quot;:&quot;VARCHAR&quot;},{&quot;parent&quot;:{&quot;name&quot;:&quot;ROLE&quot;},&quot;name&quot;:&quot;fk_user&quot;,&quot;type&quot;:&quot;VARCHAR&quot;}],&quot;wheres&quot;:[{&quot;column&quot;:{&quot;parent&quot;:{&quot;name&quot;:&quot;USER&quot;},&quot;name&quot;:&quot;login&quot;,&quot;type&quot;:&quot;VARCHAR&quot;},&quot;operator&quot;:&quot;\u003d&quot;,&quot;values&quot;:[&quot;$P{TES}&quot;]}],&quot;persistenceUnitName&quot;:&quot;app&quot;},&quot;main&quot;:true}]"/>
+	<parameter name="DATA_LIMIT" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[10]]></defaultValueExpression>
+	</parameter>
+	<parameter name="TES" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    USER.theme ,
+    USER.picture ,
+    USER.password ,
+    USER.name ,
+    USER.login ,
+    USER.email ,
+    ROLE.fk_user 
+FROM
+    USER ,
+    ROLE 
+WHERE
+    ROLE.fk_user = USER.theme AND
+    USER.login = $P{TES} 
+limit $P{DATA_LIMIT}]]>
+	</queryString>
+	<field name="theme" class="java.lang.String">
+		<fieldDescription><![CDATA[theme]]></fieldDescription>
+	</field>
+	<field name="picture" class="java.lang.String">
+		<fieldDescription><![CDATA[picture]]></fieldDescription>
+	</field>
+	<field name="password" class="java.lang.String">
+		<fieldDescription><![CDATA[password]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[name]]></fieldDescription>
+	</field>
+	<field name="login" class="java.lang.String">
+		<fieldDescription><![CDATA[login]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[email]]></fieldDescription>
+	</field>
+	<field name="fk_user" class="java.lang.String">
+		<fieldDescription><![CDATA[fk_user]]></fieldDescription>
+	</field>
+	<title>
+		<band height="79"/>
+	</title>
+	<pageHeader>
+		<band height="35">
+			<staticText>
+				<reportElement x="17" y="9" width="100" height="20" uuid="191e9e92-06d5-4d0f-b480-e11fa6ffde1a"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[teste nada]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61"/>
+	</columnHeader>
+	<detail>
+		<band height="125"/>
+	</detail>
+	<columnFooter>
+		<band height="45"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54"/>
+	</pageFooter>
+	<summary>
+		<band height="42"/>
+	</summary>
+</jasperReport>
